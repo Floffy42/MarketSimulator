@@ -76,8 +76,17 @@
                 P($"Назва: {product.Name}, Кількість: {product.Count}");
             }
             P($"Залишок активних покупців: {customers.Count}", 2);
+            foreach (Customer customer in customers)
+            {
+                P($"Картка покупця: {customer.CardNumber}, Гроші: {customer.Money:F2} / {customer.Money+customer.SpendedMoney:F2}, Куплено продуктів: {customer.PurchasedProducts}");
+            }
+            P($"Неактивні покупці: {customersWithoutMoney.Count}", 2);
+            foreach (Customer customer in customersWithoutMoney)
+            {
+                P($"Картка покупця: {customer.CardNumber}, Гроші: {customer.Money:F2} / {customer.Money+customer.SpendedMoney:F2}, Куплено продуктів: {customer.PurchasedProducts}");
+            }
 
-            P($"Прибуток магазину: {market.Profit:F2}", 1);
+            P($"Прибуток магазину: {market.Profit:F2}", 2);
 
             Customer? bestPurchaseCountCustomer = null;
             if (customers.Count > 0)

@@ -20,5 +20,10 @@
         {
             ReduceCount(count);
         }
+        public bool CheckIsQuanityEmpty()
+        {
+            bool isEmpty = Count == 0;
+            return isEmpty;
+        }
     }
 }
